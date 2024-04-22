@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea Mock Presentation for blueBytes</title>
+  <style>
+    
+    .tab {
+      display: none;
+    }
+    .tab.active {
+      display: block;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .image {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<img class="image" src="idea/image1.jpg" alt="Image 1">
+<img class="image" src="idea/image2.jpg" alt="Image 2">
+<img class="image" src="idea/image3.jpg" alt="Image 3">
+<img class="image" src="idea/image4.jpg" alt="Image 4">
+
+<div class="tab-content" id="tab1">Tab 1 Content</div>
+<div class="tab-content" id="tab2">Tab 2 Content</div>
+<div class="tab-content" id="tab3">Tab 3 Content</div>
+<div class="tab-content" id="tab4">Tab 4 Content</div>
+
+<script>
+  const images = document.querySelectorAll('.image');
+
+  images.forEach((image, index) => {
+    image.addEventListener('click', () => {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      const tabContent = document.getElementById(`tab${index + 1}`);
+      if (tabContent) {
+        tabContent.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
